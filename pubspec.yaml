@@ -1,0 +1,57 @@
+name: dfa_media_flutter
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+    
+  flutter_animate: ^4.5.2
+  shimmer: ^3.0.0
+  flutter_svg: 2.0.16
+  auto_route: ^9.2.2
+  auto_route_generator: ^9.0.0
+  flutter_bloc: ^8.1.6
+  json_serializable: ^6.8.0
+  shared_preferences: ^2.3.2
+  dio: ^5.9.0
+  cached_network_image: ^3.4.1
+  collection: ^1.18.0
+  flutter_lints: ^5.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.4.13
+
+flutter_gen:
+  output: lib/core/gen/
+  line_length: 120
+  integrations:
+    flutter_svg: true
+    lottie: true
+
+flutter:
+  uses-material-design: true
+  assets:
+    - pubspec.yaml
+    - assets/fonts/
+    - assets/icons/
+  
+  fonts:
+  - family: stolzl
+    fonts:
+      - asset: assets/fonts/stolzl_bold.otf
+        weight: 700
+      - asset: assets/fonts/stolzl_light.otf
+        weight: 300
+      - asset: assets/fonts/stolzl_medium.otf
+        weight: 500
+      - asset: assets/fonts/stolzl_regular.otf
+        weight: 400
