@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dfa_media_flutter/core/models/banner_model.dart';
 import 'package:dfa_media_flutter/core/utils/context_extension.dart';
+import 'package:dfa_media_flutter/src/widgets/feedback_widget.dart';
 import 'package:dfa_media_flutter/src/widgets/place_holder_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -70,13 +71,16 @@ class _BannersCaruselWidgetState extends State<BannersCaruselWidget> {
               onPageChanged: _onPageChanged,
               itemBuilder: (context, i) => Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: CachedNetworkImage(
-                    fit: BoxFit.fill,
-                    imageUrl: widget.banners[i].image,
-                    placeholder: (context, url) => const PlaceHolderWidget(),
-                    errorWidget: (context, url, error) => const PlaceHolderWidget(),
+                child: FeedbackWidget(
+                  scalePattern: 0.9,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: CachedNetworkImage(
+                      fit: BoxFit.fill,
+                      imageUrl: widget.banners[i].image,
+                      placeholder: (context, url) => const PlaceHolderWidget(),
+                      errorWidget: (context, url, error) => const PlaceHolderWidget(),
+                    ),
                   ),
                 ),
               ),

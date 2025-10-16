@@ -3,6 +3,7 @@ import 'package:dfa_media_flutter/core/gen/assets.gen.dart';
 import 'package:dfa_media_flutter/core/models/product_model.dart';
 import 'package:dfa_media_flutter/core/models/theme/colors.dart';
 import 'package:dfa_media_flutter/core/utils/context_extension.dart';
+import 'package:dfa_media_flutter/src/widgets/feedback_widget.dart';
 import 'package:dfa_media_flutter/src/widgets/icon_widget.dart';
 import 'package:dfa_media_flutter/src/widgets/place_holder_widget.dart';
 import 'package:flutter/material.dart';
@@ -21,23 +22,30 @@ class ProductWidget extends StatelessWidget {
       width: imageSize,
       child: Column(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(11),
-            child: CachedNetworkImage(
-              height: imageSize,
-              width: imageSize,
-              fit: BoxFit.fill,
-              imageUrl: product.image,
-              placeholder: (context, url) => const PlaceHolderWidget(),
-              errorWidget: (context, url, error) => const PlaceHolderWidget(),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5),
-            child: Text(
-              product.title,
-              style: textTheme.bodyMedium,
-              maxLines: 3,
+          FeedbackWidget(
+            scalePattern: 0.9,
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(11),
+                  child: CachedNetworkImage(
+                    height: imageSize,
+                    width: imageSize,
+                    fit: BoxFit.fill,
+                    imageUrl: product.image,
+                    placeholder: (context, url) => const PlaceHolderWidget(),
+                    errorWidget: (context, url, error) => const PlaceHolderWidget(),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: Text(
+                    product.title,
+                    style: textTheme.bodyMedium,
+                    maxLines: 3,
+                  ),
+                ),
+              ],
             ),
           ),
           Row(
