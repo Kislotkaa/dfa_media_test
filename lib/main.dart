@@ -1,5 +1,6 @@
 import 'package:dfa_media_flutter/app.dart';
 import 'package:dfa_media_flutter/src/cubits/theme_cubit.dart';
+import 'package:dfa_media_flutter/src/modules/fcm_module.dart';
 import 'package:dfa_media_flutter/src/providers/remote_data_provider.dart';
 import 'package:dfa_media_flutter/src/providers/local_data_provider.dart';
 import 'package:dfa_media_flutter/src/repositories/banners_repository.dart';
@@ -16,6 +17,8 @@ Future<void> main() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   final sharedPreferences = await SharedPreferences.getInstance();
+
+  FcmModule.initFirebaseMessaging();
 
   final localDataProvider = LocalDataProvider(sharedPreferences);
   final remoteDataProvider = RemoteDataProvider();
