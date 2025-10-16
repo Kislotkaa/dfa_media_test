@@ -22,7 +22,6 @@ class BannersCaruselWidget extends StatefulWidget {
 
 class _BannersCaruselWidgetState extends State<BannersCaruselWidget> {
   final _controller = PageController();
-
   Timer? _timer;
   int _currentPage = 0;
 
