@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:dfa_media_flutter/core/gen/assets.gen.dart';
-
 import 'package:dfa_media_flutter/core/utils/context_extension.dart';
 import 'package:dfa_media_flutter/src/widgets/feedback_widget.dart';
+import 'package:flutter/material.dart';
 
 class IconWidget extends StatelessWidget {
   const IconWidget({

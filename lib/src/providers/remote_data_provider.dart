@@ -6,6 +6,7 @@ import 'package:dfa_media_flutter/core/models/product_model.dart';
 import 'package:dfa_media_flutter/core/models/story_model.dart';
 import 'package:dfa_media_flutter/core/utils/constants.dart';
 import 'package:dio/dio.dart';
+import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 
 class RemoteDataProvider {
   RemoteDataProvider() {
@@ -14,7 +15,25 @@ class RemoteDataProvider {
         baseUrl: Constants.baseUrl,
         contentType: 'application/json',
       ),
-    );
+    )..interceptors.addAll(
+        [
+          LogInterceptor(
+            request: true,
+            requestHeader: true,
+            requestBody: true,
+            responseHeader: true,
+            responseBody: true,
+            error: true,
+          ),
+          DioCacheInterceptor(
+            options: CacheOptions(
+              store: MemCacheStore(),
+              maxStale: const Duration(days: 1),
+              priority: CachePriority.normal,
+            ),
+          ),
+        ],
+      );
   }
 
   Dio? _dio;

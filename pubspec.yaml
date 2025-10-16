@@ -21,6 +21,7 @@ dependencies:
   json_serializable: ^6.8.0
   shared_preferences: ^2.3.2
   dio: ^5.9.0
+  dio_cache_interceptor: ^4.0.5
   cached_network_image: ^3.4.1
   collection: ^1.18.0
   flutter_lints: ^5.0.0

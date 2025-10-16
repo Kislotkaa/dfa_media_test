@@ -12,6 +12,9 @@ part 'main_event.dart';
 part 'main_state.dart';
 
 class MainBloc extends Bloc<MainEvent, MainState> {
+  // За место репозиториев можно использовать UseCase.
+  // Это интерфесы под конкретный метод репозитория,
+  // уменьшит связность Bloc и Repository
   final BannersRepository _bannersRepository;
   final StoriesRepository _storiesRepository;
   final ProductsRepository _productsRepository;
@@ -26,9 +29,13 @@ class MainBloc extends Bloc<MainEvent, MainState> {
     on<MainGetBannersEvent>(_getBanners);
   }
 
-  final List<ProductModel> _products = [];
+  // Если фича историй или баннеров становится слишком большой,
+  // то лучше вынести в отдельный блок и не захламлять MainBloc,
+  // сейчас не вижу в этом никакого смысла
   final List<BannerModel> _banners = [];
   final List<StoryModel> _stories = [];
+
+  final List<ProductModel> _products = [];
 
   FutureOr<void> _getProducts(MainGetProductsEvent event, emit) async {
     emit(MainLoadingProductsState());

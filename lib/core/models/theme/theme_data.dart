@@ -23,6 +23,7 @@ class AppThemeData {
     iconTheme: const IconThemeData(color: AppDarkColors.text),
     hintColor: AppDarkColors.text,
     scaffoldBackgroundColor: AppDarkColors.scaffold,
+    dividerColor: AppDarkColors.gray,
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       elevation: 0,
       backgroundColor: AppDarkColors.background,
@@ -42,6 +43,13 @@ class AppThemeData {
         color: AppDarkColors.text,
         fontWeight: FontWeight.w400,
         fontSize: 10,
+        height: 1.4,
+      ),
+      bodyLarge: TextStyle(
+        fontFamily: FontFamily.stolzl,
+        color: AppDarkColors.text,
+        fontWeight: FontWeight.w400,
+        fontSize: 12,
         height: 1.4,
       ),
     ),
@@ -68,6 +76,7 @@ class AppThemeData {
     iconTheme: const IconThemeData(color: AppLightColors.text),
     scaffoldBackgroundColor: AppLightColors.scaffold,
     hintColor: AppLightColors.text,
+    dividerColor: AppLightColors.gray,
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       elevation: 0,
       backgroundColor: AppLightColors.background,
@@ -87,6 +96,13 @@ class AppThemeData {
         color: AppLightColors.text,
         fontWeight: FontWeight.w400,
         fontSize: 10,
+        height: 1.4,
+      ),
+      bodyLarge: TextStyle(
+        fontFamily: FontFamily.stolzl,
+        color: AppLightColors.text,
+        fontWeight: FontWeight.w400,
+        fontSize: 12,
         height: 1.4,
       ),
     ),

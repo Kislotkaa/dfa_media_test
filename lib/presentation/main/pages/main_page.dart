@@ -5,8 +5,10 @@ import 'package:dfa_media_flutter/presentation/main/widgets/banners_list_widget.
 import 'package:dfa_media_flutter/presentation/main/widgets/products_list_widget.dart';
 import 'package:dfa_media_flutter/presentation/main/widgets/stories_list_widget.dart';
 import 'package:dfa_media_flutter/src/widgets/appbar_widget.dart';
+import 'package:dfa_media_flutter/src/widgets/badge_widget.dart';
 import 'package:dfa_media_flutter/src/widgets/icon_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
@@ -48,10 +50,13 @@ class _MainView extends StatelessWidget {
             icon: Assets.icons.mark,
             onTap: () {},
           ),
-          IconWidget(
-            padding: const EdgeInsets.only(left: 8),
-            icon: Assets.icons.bell,
-            onTap: () {},
+          BadgeWidget(
+            count: 2,
+            child: IconWidget(
+              padding: const EdgeInsets.only(left: 8),
+              icon: Assets.icons.bell,
+              onTap: () {},
+            ),
           ),
         ],
       ),
@@ -61,7 +66,7 @@ class _MainView extends StatelessWidget {
           const BannersListWidget(),
           const ProductsListWidget(),
         ],
-      ),
+      ).animate().fadeIn().slideX(begin: -0.3),
     );
   }
 }
